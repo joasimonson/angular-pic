@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "alura-pic": {
+    "angular-pic": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/alura-pic",
+            "outputPath": "dist/angular-pic",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +23,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": []
           },
@@ -50,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "alura-pic:build"
+            "browserTarget": "angular-pic:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "alura-pic:build:production"
+              "browserTarget": "angular-pic:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "alura-pic:build"
+            "browserTarget": "angular-pic:build"
           }
         },
         "test": {
@@ -95,7 +97,7 @@
         }
       }
     },
-    "alura-pic-e2e": {
+    "angular-pic-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +105,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "alura-pic:serve"
+            "devServerTarget": "angular-pic:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "alura-pic:serve:production"
+              "devServerTarget": "angular-pic:serve:production"
             }
           }
         },
@@ -123,5 +125,5 @@
       }
     }
   },
-  "defaultProject": "alura-pic"
+  "defaultProject": "angular-pic"
 }
