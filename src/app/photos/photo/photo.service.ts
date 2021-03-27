@@ -17,10 +17,8 @@ export class PhotoService {
 
   listFromUserPaginated(userName: string, page: number): Observable<Photo[]> {
     const params = new HttpParams().append('page', page.toString());
-
-    return this.http.get<Photo[]>(`${API}/${userName}/photos`, {
-      params,
-    });
+    const payload = { params };
+    return this.http.get<Photo[]>(`${API}/${userName}/photos`, payload);
   }
 
   upload(description: string, allowComments: boolean, file: File) {
@@ -37,5 +35,10 @@ export class PhotoService {
 
   getComments(photoId: number): Observable<PhotoComment[]>{
     return this.http.get<PhotoComment[]>(`${API}/photos/${photoId}/comments`);
+  }
+
+  addComment(photoId: number, commentText: string) {
+    const payload = { commentText };
+    return this.http.post(`${API}/photos/${photoId}/comments`, payload);
   }
 }
