@@ -8,8 +8,12 @@
     </div>
 
     <div class="col-lg-4 p-4">
-      <small *ngIf="photo?.description">
-        <p class="text-left break-word">{{ photo?.description }}</p>
+      <small>
+        <p class="text-left break-word">{{ photo.description }}</p>
+        <div class="text-left mb-4">
+          <em class="fa fa-comment-o fa-2x mr-2 ml-2"></em>{{ photo.comments }}
+          <em apPhotoOwnerOnly [ownedPhoto]="photo" (click)="remove()" class="fa fa-trash-o fa-2x pull-right"></em>
+        </div>
         <hr />
       </small>
       <ap-photo-comments

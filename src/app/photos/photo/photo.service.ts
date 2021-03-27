@@ -29,16 +29,20 @@ export class PhotoService {
     return this.http.post(`${API}/photos/upload`, formData);
   }
 
-  findById(id: number): Observable<Photo>{
+  findById(id: number): Observable<Photo> {
     return this.http.get<Photo>(`${API}/photos/${id}`);
   }
 
-  getComments(photoId: number): Observable<PhotoComment[]>{
+  getComments(photoId: number): Observable<PhotoComment[]> {
     return this.http.get<PhotoComment[]>(`${API}/photos/${photoId}/comments`);
   }
 
   addComment(photoId: number, commentText: string) {
     const payload = { commentText };
     return this.http.post(`${API}/photos/${photoId}/comments`, payload);
+  }
+
+  removePhoto(photoId: number) {
+    return this.http.delete(`${API}/photos/${photoId}`);
   }
 }
