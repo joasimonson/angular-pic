@@ -9,7 +9,7 @@ import { SignUpService } from './signup.service';
 import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 
 @Component({
-  selector: 'app-signup',
+  selector: 'ap-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
   providers: [UserNotTakenValidatorService]
