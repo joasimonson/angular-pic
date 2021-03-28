@@ -2,7 +2,8 @@
 
 <form [formGroup]="loginForm" (submit)="login()" class="form mt-4">
   <div class="form-group">
-    <input #userNameInput
+    <input
+      #userNameInput
       formControlName="userName"
       class="form-control"
       placeholder="user name"
@@ -36,4 +37,4 @@
   </button>
 </form>
 
-<p>Not a user?<a [routerLink]="['signup']">Register now</a></p>
+<p>Not a user?<a [routerLink]="['signup']"> Register now</a></p>
