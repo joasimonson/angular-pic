@@ -11,8 +11,16 @@
       <small>
         <p class="text-left break-word">{{ photo.description }}</p>
         <div class="text-left mb-4">
+          <em (click)="like(photo)" apShowIfLogged class="fa fa-heart-o fa-2x mr-2 pull-left">
+            {{ photo.likes }}
+          </em>
           <em class="fa fa-comment-o fa-2x mr-2 ml-2"></em>{{ photo.comments }}
-          <em apPhotoOwnerOnly [ownedPhoto]="photo" (click)="remove()" class="fa fa-trash-o fa-2x pull-right"></em>
+          <em
+            apPhotoOwnerOnly
+            [ownedPhoto]="photo"
+            (click)="remove()"
+            class="fa fa-trash-o fa-2x pull-right"
+          ></em>
         </div>
         <hr />
       </small>
