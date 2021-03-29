@@ -28,7 +28,11 @@ export class PhotoService {
     formData.append('description', description);
     formData.append('allowComments', allowComments ? 'true' : 'false');
     formData.append('imageFile', file);
-    return this.http.post(`${API}/photos/upload`, formData);
+
+    return this.http.post(`${API}/photos/upload`, formData, {
+      observe: 'events',
+      reportProgress: true,
+    });
   }
 
   findById(id: number): Observable<Photo> {
@@ -51,9 +55,11 @@ export class PhotoService {
   like(photoId: number) {
     return this.http
       .post(`${API}/photos/${photoId}/like`, {}, { observe: 'response' })
-      .pipe(map(res => true))
-      .pipe(catchError(err => {
-        return err.status == '304' ? of(false) : throwError(err);
-      }));
+      .pipe(map((res) => true))
+      .pipe(
+        catchError((err) => {
+          return err.status == '304' ? of(false) : throwError(err);
+        })
+      );
   }
 }
